@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { stringify } = require("querystring");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -54,7 +55,19 @@ async function init() {
     try {
         console.log ("Function init called");
         const storeData = await promptQuestions().then(answers=>{
-            console.log(answers);
+        console.log(answers);
+        if(answers.jobRole === "Manager") {
+            console.log ("This employee's role is a Manager");
+        }
+        else if (answers.jobRole === "Engineer") {
+            console.log ("This employee's  is an Engineer");
+        }
+        else if (answers.jobRole === "Intern") {
+            console.log("This employee's  is an Intern");
+        }
+        else {
+            console.log("This employee's role is not listed");
+        }
         })
     }
     catch (err){
@@ -64,23 +77,6 @@ async function init() {
 
 // call to initialize program
 init();
-
-    // .then(function(response) {
-    //     if(response.choices === "Manager") {
-    //         return "This employee's role is a Manager";
-    //     }
-    //     else if (response.choices === "Engineer") {
-    //         return "This employee's  is an Engineer";
-    //     }
-    //     else if (response.choices === "Intern") {
-    //         return "This employee's  is an Intern";
-    //     }
-    //     else {
-    //         return "This employee's role is not listed";
-    //     }
-
-    // })
-
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
