@@ -15,8 +15,7 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // use the inquirer npm package to prompt user for their email, id, and specific information based on their role with the company.
-function questions(){
-    inquirer.prompt([
+const questions = [
         {
             type: "input",
             name: "enteredName",
@@ -43,10 +42,44 @@ function questions(){
                 "Not listed"
             ]
         }
-    ])
+    ];
+
+// This function prompts the array of questions
+function promptQuestions() {
+    return inquirer.prompt(questions);
 }
 
+// This function initializes the program
+async function init() {
+    try {
+        console.log ("Function init called");
+        const storeData = await promptQuestions().then(answers=>{
+            console.log(answers);
+        })
+    }
+    catch (err){
+        return console.log(err);
+    }
+}
 
+// call to initialize program
+init();
+
+    // .then(function(response) {
+    //     if(response.choices === "Manager") {
+    //         return "This employee's role is a Manager";
+    //     }
+    //     else if (response.choices === "Engineer") {
+    //         return "This employee's  is an Engineer";
+    //     }
+    //     else if (response.choices === "Intern") {
+    //         return "This employee's  is an Intern";
+    //     }
+    //     else {
+    //         return "This employee's role is not listed";
+    //     }
+
+    // })
 
 
 // After the user has input all employees desired, call the `render` function (required
