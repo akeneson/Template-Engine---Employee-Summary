@@ -51,27 +51,34 @@ function promptQuestions() {
     return inquirer.prompt(questions);
 }
 
+function addEmployee (answers) {
+    if(answers.jobRole === "Manager") {
+        console.log ("This employee's role is a Manager");
+        const Manager = new Manager (answers.name, answers.email, answers.id);
+        return Manager;
+    }
+    else if (answers.jobRole === "Engineer") {
+        console.log ("This employee's  is an Engineer");
+        const Engineer = new Engineer (answers.name, answers.email, answers.id);
+        return Engineer;
+    }
+    else if (answers.jobRole === "Intern") {
+        console.log("This employee's  is an Intern");
+        const Intern = new Intern (answers.name, answers.email, answers.id);
+        return Intern;
+    }
+    else {
+        console.log("This employee's role is not listed");
+    }
+}
+
 // This function initializes the program
 async function init() {
     try {
         console.log ("Function init called");
         const storeData = await promptQuestions().then(answers=>{
-        console.log(answers);
-        if(answers.jobRole === "Manager") {
-            console.log ("This employee's role is a Manager");
-            const Manager = new Manager (answers.name, answers.email, answers.id);
-        }
-        else if (answers.jobRole === "Engineer") {
-            console.log ("This employee's  is an Engineer");
-            const Engineer = new Engineer (answers.name, answers.email, answers.id);
-        }
-        else if (answers.jobRole === "Intern") {
-            console.log("This employee's  is an Intern");
-            const Intern = new Intern (answers.name, answers.email, answers.id);
-        }
-        else {
-            console.log("This employee's role is not listed");
-        }
+            console.log(answers);
+            addEmployee(answers)
         })
     }
     catch (err){
