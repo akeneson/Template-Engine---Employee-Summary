@@ -45,6 +45,7 @@ const questions = [
         }
     ];
 
+
 // This function prompts the array of questions
 function promptQuestions() {
     return inquirer.prompt(questions);
@@ -58,12 +59,15 @@ async function init() {
         console.log(answers);
         if(answers.jobRole === "Manager") {
             console.log ("This employee's role is a Manager");
+            const Manager = new Manager (answers.name, answers.email, answers.id);
         }
         else if (answers.jobRole === "Engineer") {
             console.log ("This employee's  is an Engineer");
+            const Engineer = new Engineer (answers.name, answers.email, answers.id);
         }
         else if (answers.jobRole === "Intern") {
             console.log("This employee's  is an Intern");
+            const Intern = new Intern (answers.name, answers.email, answers.id);
         }
         else {
             console.log("This employee's role is not listed");
