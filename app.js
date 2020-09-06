@@ -33,11 +33,11 @@ function addManager() {
     },
     {
         type: "input",
-        name: "phoneNumber",
+        name: "officeNumber",
         message: "Enter the Manger's phone number"
     }
     ]).then(answers => {
-        let manager = new Manager(answers.managerName, answers.managerEmail, answers.managerID, answers.phoneNumber);
+        let manager = new Manager(answers.managerName, answers.managerEmail, answers.managerID, answers.officeNumber);
         employeeList.push(manager);
         buildTeam();
     })
