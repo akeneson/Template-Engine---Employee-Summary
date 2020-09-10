@@ -39,14 +39,13 @@ function addManager() {
     ]).then(answers => {
         let manager = new Manager(answers.managerName, answers.managerEmail, answers.managerID, answers.officeNumber);
         employeeList.push(manager);
-        buildTeam();
+        createTeam();
     })
 }
 
 
 // *****To add a Engineer*****
 function addEngineer() {
-    console.log(employeeList);
     inquirer.prompt([{
         type: "input",
         name: "engineerName",
@@ -70,7 +69,7 @@ function addEngineer() {
     ]).then(answers => {
         let engineer = new Engineer(answers.engineerName, answers.engineerEmail, answers.engineerID, answers.github);
         employeeList.push(engineer);
-        buildTeam();
+        createTeam();
     })
 }
 
@@ -92,18 +91,15 @@ function addIntern() {
     },
     {
         type: "input",
-        name: "School",
+        name: "school",
         message: "Enter the school's name that the Intern is associated with: "
     }
     ]).then(answers => {
         let intern = new Intern(answers.internName, answers.internEmail, answers.InternID, answers.school);
-        buildTeam();
+        employeeList.push(intern);
+        createTeam();
     })
-    console.log(employeeList);
-
 }
-
-
 
 function end(){
     console.log("End.");
@@ -119,7 +115,7 @@ function createTeam() {
             "Manager",
             "Engineer",
             "Intern",
-            "Not Listed"
+            "Done adding employees at this time."
         ],
         name: "jobRole"
     }]).then(answers => {
@@ -133,7 +129,7 @@ function createTeam() {
             addIntern();
         }
         else
-            end();
+            return writeHTML(employeeList);
         // switch(answers.jobRole){
         //     case "Engineer":
         //         addEngineer();
@@ -150,10 +146,12 @@ function buildTeam() {
         fs.mkdirSync(OUTPUT_DIR);
     }
     // call 'render' function and passing an array (employeeList) containing all employee objects
-    fs.writeFileSync(outputPath, render(employeeList), "UTF-8");
-    // createTeam() initiates prompt to add an employee
     createTeam();
+    // createTeam() initiates prompt to add an employee
+}
+function writeHTML(){
     console.log(employeeList);
+    fs.writeFileSync(outputPath, render(employeeList), "UTF-8");
 }
 
 // calling function to write file
