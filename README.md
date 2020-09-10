@@ -7,8 +7,9 @@
   # Template Engine Employee Summary
   ## Description
   The application allows users to create a roster of employees with pertinent information including their role with the company.
-  ![Image of readME Generator](https://github.com/akeneson/Template-Engine---Employee-Summary/blob/master/Screen%20Shot%202020-09-09%20at%206.58.05%20PM.png?raw=true)
-  ![Image of readME Generator](https://github.com/akeneson/Template-Engine---Employee-Summary/blob/master/Screen%20Shot%202020-09-09%20at%206.57.44%20PM.png?raw=true)
+  ![Image of Template Engine Generator](https://github.com/akeneson/Template-Engine---Employee-Summary/blob/master/Screen%20Shot%202020-09-09%20at%206.58.05%20PM.png?raw=true)
+  ![Image of Template Engine Generator](https://github.com/akeneson/Template-Engine---Employee-Summary/blob/master/Screen%20Shot%202020-09-09%20at%206.57.44%20PM.png?raw=true)
+  ![Video of Template Engine Generator](https://drive.google.com/file/d/1YSANFcRitqRwF1vMU9ioMb_yU-q_eTy7/view)
   ---
   ## Table of Contents
 
