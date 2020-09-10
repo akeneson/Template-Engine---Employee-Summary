@@ -28,7 +28,6 @@
 
   ## Usage
   The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. After the user completes the input of every employee, a file named 'team.html' will be generated for the user to have an organized layout of the employees inputed.
- ![Image of readME Generator](https://github.com/akeneson/readME-Generator/blob/master/Screen%20Shot%202020-08-31%20at%2011.23.12.png?raw=true)
   
   ## License
   Template Engine Employee Summary is Unlicense
